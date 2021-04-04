@@ -14,6 +14,7 @@
 		<h1 class="judul">Sistem Informasi Mahasiswa USU</h1>
 		<h3 class="deskripsi">Halaman Awal</h3>
 	</header>
+	<button type="button" class="btn btn"><?php echo anchor('/tambah','Tambah Data'); ?></button>
 <table>
 <tr>
 <th>Id</th>
