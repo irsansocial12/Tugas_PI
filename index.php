@@ -21,12 +21,20 @@
 <th>nim</th>
 <th>tempat_tinggal</th>
 </tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
+<?php 
+		$no = 1; foreach($mahasiswa as $u){ 
+		?>
+		<tr>
+			<td><?php echo $u->Id++ ?></td>
+			<td><?php echo $u->nama ?></td>
+			<td><?php echo $u->nim ?></td>
+			<td><?php echo $u->tempat_tinggal ?></td>
+			<td>
+			    <button type="button" class="btn btn-link"><?php echo anchor('/edit'.$u->Id,'Edit'); ?></button> |
+                 <button type="button" class="btn btn-link"><?php echo anchor('/hapus'.$u->Id,'Hapus'); ?></button>
+			</td>
+		</tr>
+		<?php } ?>
 </table>
 
 	 
