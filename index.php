@@ -14,37 +14,23 @@
 		<h1 class="judul">Sistem Informasi Mahasiswa USU</h1>
 		<h3 class="deskripsi">Halaman Awal</h3>
 	</header>
+<table>
+<tr>
+<th>Id</th>
+<th>nama</th>
+<th>nim</th>
+<th>tempat_tinggal</th>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
 
-	<div class="menu">
-		<ul>
-			<li><a href="index.php?page=home">HOME</a></li>
+	 
 
-		</ul>
-	</div>
-
-	<div class="badan">
-
-
-	<?php 
-	if(isset($_GET['page'])){
-		$page = $_GET['page'];
-
-		switch ($page) {
-			case 'home':
-				include "/home.php";
-                break;
-		
-			default:
-				echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";
-				break;
-		}
-	}else{
-		include "/home.php";
-	}
-
-	 ?>
-
-	</div>
 </div>
 </body>
 </html>
