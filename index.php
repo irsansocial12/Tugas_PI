@@ -1,4 +1,3 @@
-<DOCTYPE>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +18,7 @@
 	<div class="menu">
 		<ul>
 			<li><a href="index.php?page=home">HOME</a></li>
-            <li><a href="index.php?page=login">Login<a></li>
+
 		</ul>
 	</div>
 
@@ -34,9 +33,6 @@
 			case 'home':
 				include "/home.php";
                 break;
-            
-            case 'login':
-                include "/login.php"
 		
 			default:
 				echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";
