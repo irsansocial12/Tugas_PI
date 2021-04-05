@@ -45,15 +45,15 @@ while($user_data = mysqli_fetch_array($result))
 		<table border="0">
 			<tr> 
 				<td>NIM</td>
-				<td><input type="text" name="name" value=<?php echo $name;?>></td>
+				<td><input type="text" name="nim" value=<?php echo $nim;?>></td>
 			</tr>
 			<tr> 
 				<td>Nama</td>
-				<td><input type="text" name="email" value=<?php echo $email;?>></td>
+				<td><input type="text" name="nama" value=<?php echo $nama;?>></td>
 			</tr>
 			<tr> 
 				<td>Tempat Tinggal</td>
-				<td><input type="text" name="mobile" value=<?php echo $mobile;?>></td>
+				<td><input type="text" name="tempat_tinggal" value=<?php echo $tempat_tinggal;?>></td>
 			</tr>
 			<tr>
 				<td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
