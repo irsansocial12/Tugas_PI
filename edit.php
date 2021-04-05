@@ -1,33 +1,65 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Edit Data</title>
-</head>
-<body>
-	<center>
-		<h3>Edit Data</h3>
-	</center>
-	<?php foreach($mahasiswa as $u) { ?>
-	<form action="<?php echo base_url(). 'index.php'; ?>" method="post">
-		<table style="margin:20px auto;">
-			<tr>
+<?php
+// include database connection file
+include_once("config.php");
+ 
+// Check if form is submitted for user update, then redirect to homepage after update
+if(isset($_POST['update']))
+{	
+	$id = $_POST['id'];
+	
+	$name=$_POST['nim'];
+	$nama=$_POST['nama'];
+	$tempat_tinggal=$_POST['tempat_tinggal'];
+		
+	// update user data
+	$result = mysqli_query($mysqli, "UPDATE tbl_mahasiswa SET nim='$nim',nama='$nama',tempat_tinggal='$tempat_tinggal' WHERE id=$id");
+	
+	// Redirect to homepage to display updated user in list
+	header("Location: index.php");
+}
+?>
+<?php
 
-				<td>Nama</td>
-				<td>
-					<input type="hidden" name="nim" value="<?php echo $u->nim ?>">
-					<input type="text" name="nama" value="<?php echo $u->nama ?>">
-				</td>
+$id = $_GET['id'];
+ 
+
+$result = mysqli_query($mysqli, "SELECT * FROM tbl_mahasiswa WHERE id=$id");
+ 
+while($user_data = mysqli_fetch_array($result))
+{
+	$nim = $user_data['nim'];
+	$nama = $user_data['nama'];
+	$tempat_tinggal = $user_data['tempat_tinggal'];
+}
+?>
+<html>
+<head>	
+	<title>Edit User Data</title>
+</head>
+ 
+<body>
+	<a href="index.php">Home</a>
+	<br/><br/>
+	
+	<form name="update_user" method="post" action="edit.php">
+		<table border="0">
+			<tr> 
+				<td>Name</td>
+				<td><input type="text" name="name" value=<?php echo $name;?>></td>
+			</tr>
+			<tr> 
+				<td>Email</td>
+				<td><input type="text" name="email" value=<?php echo $email;?>></td>
+			</tr>
+			<tr> 
+				<td>Mobile</td>
+				<td><input type="text" name="mobile" value=<?php echo $mobile;?>></td>
 			</tr>
 			<tr>
-				<td>tempat_tinggal</td>
-				<td><input type="text" name="tempat_tinggal" value="<?php echo $u->tempat_tinggal ?>"></td>
-			</tr>			<tr>
-				<td></td>
-				<td><input type="submit" value="Simpan"s>
-				<input type="reset" value="Reset"s></td>
+				<td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
+				<td><input type="submit" name="update" value="Update"></td>
 			</tr>
 		</table>
-	</form>	
-	<?php } ?>
+	</form>
 </body>
 </html>
