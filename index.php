@@ -1,46 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Selamat Datang di Sistem Informasi Mahasiswa USU</title>
-	<!-- menghubungkan dengan file css -->
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<!-- menghubungkan dengan file jquery -->
-	<script type="text/javascript" src="jquery.js"></script>
-</head>
-<body>
-
-<div class="content">
-	<header>
-		<h1 class="judul">Sistem Informasi Mahasiswa USU</h1>
-		<h3 class="deskripsi">Halaman Awal</h3>
-	</header>
-	<button type="button" class="btn btn"><?php echo anchor('/tambah','Tambah Data'); ?></button>
-<table>
-<tr>
-<th>Nomor</th>
-<th>NIM</th>
-<th>Nama</th>
-<th>Tempat Tinggal</th>
-<th>Opsi</th>
-</tr>
 <?php
-		include "koneksi.php";
-		$query_mysql = mysql_query("SELECT * FROM tbl_mahasiswa")or die(mysql_error());
-		$no = 1;
-		while($mahasiswa = mysql_fetch_array($query_mysql)){ 
-		?>
-		<tr>
-			<td><?php echo $no++; ?></td>
-			<td><?php echo $mahasiswa['nim']; ?></td>
-			<td><?php echo $mahasiswa['nama']; ?></td>
-			<td><?php echo $mahasiswa['tempat_tinggal']; ?></td>
-			<td>
-			    <button type="button" class="btn btn-link"><?php echo anchor('/edit'.$u->Id,'Edit'); ?></button> |
-                 <button type="button" class="btn btn-link"><?php echo anchor('/hapus'.$u->Id,'Hapus'); ?></button>
-			</td>
-		</tr>
-		<?php } ?>
-	</table>
-</div>
+// Create database connection using config file
+include_once("koneksi.php");
+ 
+// Fetch all users data from database
+$result = mysqli_query($mysqli, "SELECT * FROM tbl_mahasiswa ORDER BY id DESC");
+?>
+ 
+<html>
+<head>    
+    <title>Homepage</title>
+</head>
+ 
+<body>
+<a href="add.php">Add New User</a><br/><br/>
+ 
+    <table width='80%' border=1>
+ 
+    <tr>
+        <th>ID</th> <th>NIM</th> <th>Nama</th> <th>Tempat Tinggal</th> <th>Update</th>
+    </tr>
+    <?php  
+    while($user_data = mysqli_fetch_array($result)) {         
+        echo "<tr>";
+		echo "<td>".$user_data['id']."</td>";
+        echo "<td>".$user_data['nim']."</td>";
+        echo "<td>".$user_data['nama']."</td>";
+        echo "<td>".$user_data['tempat_tinggal']."</td>";    
+        echo "<td><a href='edit.php?id=$user_data[id]'>Edit</a> | <a href='delete.php?id=$user_data[id]'>Delete</a></td></tr>";        
+    }
+    ?>
+    </table>
 </body>
 </html>
