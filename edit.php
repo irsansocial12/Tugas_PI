@@ -44,15 +44,15 @@ while($user_data = mysqli_fetch_array($result))
 	<form name="update_user" method="post" action="edit.php">
 		<table border="0">
 			<tr> 
-				<td>Name</td>
+				<td>NIM</td>
 				<td><input type="text" name="name" value=<?php echo $name;?>></td>
 			</tr>
 			<tr> 
-				<td>Email</td>
+				<td>Nama</td>
 				<td><input type="text" name="email" value=<?php echo $email;?>></td>
 			</tr>
 			<tr> 
-				<td>Mobile</td>
+				<td>Tempat Tinggal</td>
 				<td><input type="text" name="mobile" value=<?php echo $mobile;?>></td>
 			</tr>
 			<tr>
