@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Apr 2021 pada 06.13
+-- Waktu pembuatan: 05 Apr 2021 pada 12.12
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 7.2.5
 
@@ -36,6 +36,15 @@ CREATE TABLE `tbl_mahasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data untuk tabel `tbl_mahasiswa`
+--
+
+INSERT INTO `tbl_mahasiswa` (`id`, `nim`, `nama`, `tempat_tinggal`) VALUES
+(1, 181402003, 'Ammar Rafi', 'Lubuk Pakam'),
+(2, 181402012, 'Irsan Maulana', 'Aceh'),
+(3, 181402072, 'Janrian Simbolon', 'Medan');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -53,7 +62,7 @@ ALTER TABLE `tbl_mahasiswa`
 -- AUTO_INCREMENT untuk tabel `tbl_mahasiswa`
 --
 ALTER TABLE `tbl_mahasiswa`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
