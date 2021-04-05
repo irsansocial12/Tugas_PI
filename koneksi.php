@@ -1,7 +1,10 @@
-<?php 
+<?php
 
-$host = mysql_connect("localhost","root","");
+$db_Host = 'localhost';
+$db_Name = 'tugaspi';
+$db_Username = 'root';
+$db_Password = '';
  
-$db = mysql_select_db("tugaspi");
+$mysqli = mysqli_connect($db_Host, $db_Name, $db_Username, $db_Password); 
  
 ?>

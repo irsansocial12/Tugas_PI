@@ -17,29 +17,30 @@
 	<button type="button" class="btn btn"><?php echo anchor('/tambah','Tambah Data'); ?></button>
 <table>
 <tr>
-<th>Id</th>
-<th>nama</th>
-<th>nim</th>
-<th>tempat_tinggal</th>
+<th>Nomor</th>
+<th>NIM</th>
+<th>Nama</th>
+<th>Tempat Tinggal</th>
+<th>Opsi</th>
 </tr>
-<?php 
-		$no = 1; foreach($mahasiswa as $u){ 
+<?php
+		include "koneksi.php";
+		$query_mysql = mysql_query("SELECT * FROM tbl_mahasiswa")or die(mysql_error());
+		$no = 1;
+		while($mahasiswa = mysql_fetch_array($query_mysql)){ 
 		?>
 		<tr>
-			<td><?php echo $u->Id++ ?></td>
-			<td><?php echo $u->nama ?></td>
-			<td><?php echo $u->nim ?></td>
-			<td><?php echo $u->tempat_tinggal ?></td>
+			<td><?php echo $no++; ?></td>
+			<td><?php echo $mahasiswa['nim']; ?></td>
+			<td><?php echo $mahasiswa['nama']; ?></td>
+			<td><?php echo $mahasiswa['tempat_tinggal']; ?></td>
 			<td>
 			    <button type="button" class="btn btn-link"><?php echo anchor('/edit'.$u->Id,'Edit'); ?></button> |
                  <button type="button" class="btn btn-link"><?php echo anchor('/hapus'.$u->Id,'Hapus'); ?></button>
 			</td>
 		</tr>
 		<?php } ?>
-</table>
-
-	 
-
+	</table>
 </div>
 </body>
 </html>
